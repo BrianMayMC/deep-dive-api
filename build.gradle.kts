@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "me.deepdive"
-version = "1.0-SNAPSHOT"
+version = "1.0.2"
 
 
 java {
@@ -63,7 +63,7 @@ publishing {
             artifact(tasks.named("sourcesJar"))
             groupId = "com.github.BrianMayMC"  // Replace with your group ID
             artifactId = "deep-dive-api"  // Replace with your API name
-            version = "1.0.1"  // Replace with your version
+            version = "1.0.2"  // Replace with your version
         }
     }
 }
