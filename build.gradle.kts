@@ -10,6 +10,9 @@ version = "1.0.2"
 
 
 java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
     withSourcesJar() // Ensure the source JAR is included
 }
 
@@ -66,4 +69,9 @@ publishing {
             version = "1.0.2"  // Replace with your version
         }
     }
+}
+
+tasks.withType<JavaCompile> {
+    sourceCompatibility = "21"
+    targetCompatibility = "21"
 }
