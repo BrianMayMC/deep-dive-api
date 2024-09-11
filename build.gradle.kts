@@ -61,8 +61,8 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
             artifact(tasks.named("sourcesJar"))
-            groupId = "me.deepdive"  // Replace with your group ID
-            artifactId = "DeepDiveAPI"  // Replace with your API name
+            groupId = "com.github.BrianMayMC"  // Replace with your group ID
+            artifactId = "deep-dive-api"  // Replace with your API name
             version = "1.0.0"  // Replace with your version
         }
     }
