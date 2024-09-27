@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "me.deepdive"
-version = "1.0.2"
+version = "1.1.0"
 
 
 java {
@@ -63,9 +63,13 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            groupId = "com.github.BrianMayMC"  // Replace with your group ID
-            artifactId = "deep-dive-api"  // Replace with your API name
-            version = "1.0.2"  // Replace with your version
+
+            groupId = "com.github.BrianMayMC"
+            artifactId = "deep-dive-api"
+            version = "1.1.0-dev"
+
+            // Avoid publishing extra JARs like -dev or -all
+            artifact(tasks.named("shadowJar"))
         }
     }
 }
@@ -74,3 +78,10 @@ tasks.withType<JavaCompile> {
     sourceCompatibility = "21"
     targetCompatibility = "21"
 }
+
+tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
+    archiveBaseName.set("deep-dive-api")  // Set the base name to match your project
+    archiveVersion.set("1.1.0")  // Ensure this pulls directly from your version variable
+    archiveClassifier.set("")  // This ensures no classifier (like '-all') is added
+}
+
